@@ -1,0 +1,59 @@
+{
+  "slug": "world-meeting-time",
+  "url": "https://nanalab.kr/world-meeting-time/",
+  "languages": [
+    "ko",
+    "en",
+    "es",
+    "zh",
+    "ja",
+    "de"
+  ],
+  "locales": {
+    "ko": {
+      "name": "국제 회의 시각표",
+      "description": "도시별 시간대와 근무시간을 비교해 공통 회의 후보를 찾고 ICS 일정으로 저장하세요.",
+      "image_alt": "국제 회의 시각표"
+    },
+    "en": {
+      "name": "World Meeting Time",
+      "description": "Compare city time zones and working hours to find shared meeting slots and export an ICS calendar event.",
+      "image_alt": "World Meeting Time"
+    },
+    "es": {
+      "name": "Horario de reunión mundial",
+      "description": "Compara zonas horarias y horarios laborales de distintas ciudades para encontrar reuniones compatibles y exportarlas en ICS.",
+      "image_alt": "Horario de reunión mundial"
+    },
+    "zh": {
+      "name": "国际会议时间表",
+      "description": "比较各城市的时区与工作时间，查找共同会议时段并导出 ICS 日程。",
+      "image_alt": "国际会议时间表"
+    },
+    "ja": {
+      "name": "国際会議タイムテーブル",
+      "description": "都市ごとのタイムゾーンと勤務時間を比較し、共通の会議候補を探してICS予定に保存できます。",
+      "image_alt": "国際会議タイムテーブル"
+    },
+    "de": {
+      "name": "Internationale Besprechungszeiten",
+      "description": "Vergleichen Sie Zeitzonen und Arbeitszeiten verschiedener Städte, finden Sie gemeinsame Termine und exportieren Sie einen ICS-Kalendereintrag.",
+      "image_alt": "Internationale Besprechungszeiten"
+    },
+    "fr": {
+      "name": "Horaires de réunion internationaux",
+      "description": "Comparez les fuseaux horaires et les heures de travail de plusieurs villes pour trouver des créneaux communs et exporter un événement ICS.",
+      "image_alt": "Horaires de réunion internationaux"
+    },
+    "pt": {
+      "name": "Horário de reuniões internacionais",
+      "description": "Compare fusos horários e expedientes de diferentes cidades para encontrar horários comuns e exportar um evento ICS.",
+      "image_alt": "Horário de reuniões internacionais"
+    },
+    "ru": {
+      "name": "Время международных встреч",
+      "description": "Сравнивайте часовые пояса и рабочие часы городов, находите общее время встречи и сохраняйте событие ICS.",
+      "image_alt": "Время международных встреч"
+    }
+  }
+}

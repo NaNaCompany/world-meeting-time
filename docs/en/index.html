@@ -1,0 +1,78 @@
+<!doctype html><html lang="en"><head><base href="../"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>World Meeting Time · NaNa Lab</title><link rel="stylesheet" href="style.css"><script type="module" src="app.js"></script>
+<meta name="robots" content="index,follow">
+<meta name="description" content="Compare city time zones and working hours to find shared meeting slots and export an ICS calendar event.">
+<link rel="canonical" href="https://nanalab.kr/world-meeting-time/en/">
+<link rel="alternate" hreflang="ko" href="https://nanalab.kr/world-meeting-time/">
+<link rel="alternate" hreflang="en" href="https://nanalab.kr/world-meeting-time/en/">
+<link rel="alternate" hreflang="es" href="https://nanalab.kr/world-meeting-time/es/">
+<link rel="alternate" hreflang="zh" href="https://nanalab.kr/world-meeting-time/zh/">
+<link rel="alternate" hreflang="ja" href="https://nanalab.kr/world-meeting-time/ja/">
+<link rel="alternate" hreflang="de" href="https://nanalab.kr/world-meeting-time/de/">
+<link rel="alternate" hreflang="x-default" href="https://nanalab.kr/world-meeting-time/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nanalab.kr/world-meeting-time/en/">
+<meta property="og:title" content="World Meeting Time">
+<meta property="og:description" content="Compare city time zones and working hours to find shared meeting slots and export an ICS calendar event.">
+<meta property="og:image" content="https://nanalab.kr/world-meeting-time/og/en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="World Meeting Time">
+<meta name="twitter:description" content="Compare city time zones and working hours to find shared meeting slots and export an ICS calendar event.">
+<meta name="twitter:image" content="https://nanalab.kr/world-meeting-time/og/en.jpg">
+<link rel="stylesheet" href="public.css">
+
+<!-- NaNa publisher: AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9767176956440077"
+        crossorigin="anonymous"></script>
+<!-- /NaNa publisher: AdSense -->
+<!-- NaNa publisher: GTM -->
+<script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })
+            (window, document, 'script', 'dataLayer', 'GTM-NV2WWQXB');
+    </script>
+<!-- /NaNa publisher: GTM -->
+<!-- NaNa publisher: Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZYSF0173P"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-2ZYSF0173P');
+    </script>
+<!-- /NaNa publisher: Analytics -->
+</head><body>
+<!-- NaNa publisher: GTM fallback -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NV2WWQXB" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+<!-- /NaNa publisher: GTM fallback -->
+<header><span class="brand">NaNa / WORLD TIME</span><div><label for="language" data-t="language"></label><select id="language" class="language"></select></div></header><main><div class="intro"><span class="eyebrow" data-t="tag"></span><h1 data-t="title"></h1><p data-t="desc"></p><button id="sample" class="secondary" data-t="sample"></button></div><div class="grid"><section id="reference" class="panel"><h2 data-t="sourceTitle"></h2><label for="zone" data-t="zone"></label><select id="zone"></select><div class="row"><div><label for="date" data-t="date"></label><input id="date" type="date" min="2000-01-01" max="2100-12-31"></div><div><label for="time" data-t="time"></label><input id="time" type="time"></div></div><label for="duration" data-t="duration"></label><input id="duration" type="number" min="15" max="240" step="1" value="60"><label for="occurrence" data-t="occurrence"></label><select id="occurrence" aria-describedby="occurrenceHint"><option value="earlier" data-t="earlier"></option><option value="later" data-t="later"></option></select><p id="occurrenceHint" class="hint" data-t="occurrenceHint"></p><button id="calculate" data-t="calculate"></button></section><section class="panel"><h2 data-t="peopleTitle"></h2><p class="hint" data-t="peopleHint"></p><div id="people"></div><button id="add" class="secondary" data-t="add"></button><label class="check"><input id="weekdays" type="checkbox" checked><span data-t="weekdays"></span></label><button id="overlap" data-t="overlap"></button><p class="hint" data-t="overlapHint"></p></section><section class="panel wide"><h2 data-t="result"></h2><p id="error" class="error" role="alert"></p><p id="warning" class="warning" role="status"></p><div id="result" aria-live="polite"></div><button id="copy" class="secondary" data-t="copy" disabled></button> <button id="download" class="secondary" data-t="download" disabled></button><p id="status" class="status" role="status"></p><div id="candidates"></div></section><section class="panel wide"><details><summary data-t="notes"></summary><p data-t="note"></p><a href="https://tc39.es/ecma402/#datetimeformat-objects" target="_blank" rel="noopener" data-t="source"></a><a href="https://www.iana.org/time-zones" target="_blank" rel="noopener" data-t="source2"></a></details></section></div></main><footer><span>NaNa Lab</span><a href="https://nanalab.kr/apps/">More Apps</a></footer>
+<!-- NaNa publisher: Cloudflare fallback -->
+<script>
+(function () {
+  function ensureBeacon() {
+    // Cloudflare may inject its beacon at the edge. Reuse that script when present.
+    if (document.querySelector('script[src*="static.cloudflareinsights.com/beacon.min.js"]')) return;
+    var beacon = document.createElement('script');
+    beacon.defer = true;
+    beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    beacon.setAttribute('data-cf-beacon', JSON.stringify({token: '9f3423bb0d034d91bbe1a12afeff2429'}));
+    document.head.appendChild(beacon);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ensureBeacon, {once: true});
+  else ensureBeacon();
+})();
+</script>
+<!-- /NaNa publisher: Cloudflare fallback -->
+</body></html>

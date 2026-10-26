@@ -1,0 +1,14 @@
+{
+  "ideaId":"W017",
+  "slug":"world-meeting-time",
+  "title":"국제 회의 시각표",
+  "ready":true,
+  "summary":"Intl 실제 날짜별 시간대 변환·DST 누락/중복 검증·여러 도시 근무시간 공통후보. 여섯 언어 전체 지원.",
+  "features":["12개 IANA 도시 시간대","참가 도시 최대 6개·각자 근무시간","날짜별 실제 UTC 오프셋","DST 없는 시각 거부·중복 첫째/둘째 선택","회의 전체 분단위 근무시간 검사","30분 간격 공통후보 선택","일정 복사·UTC ICS 다운로드","6언어 전체 UI·오류·출력·도시명·경로"],
+  "languages":["ko","en","es","zh","ja","de"],
+  "languageRoutes":{"ko":"/","en":"/en/","es":"/es/","zh":"/zh/","ja":"/ja/","de":"/de/"},
+  "tests":[{"name":"node --check dist/app.js, dist/core.js, dist/locales.js","pass":true},{"name":"NY DST gap/fold, Lord Howe 30-minute DST gap/fold, Kathmandu offset, date rollover","pass":true},{"name":"complete meeting work windows, weekend rules and known common-start fixtures","pass":true},{"name":"input validation, ICS escaping, all six locale catalogs and route HTML","pass":true}],
+  "limitations":["2000–2100년·회의 15–240분·참가 최대 6개.","공통 후보 30분 간격. 근무시간 자정 넘김 미지원.","공휴일·개별 휴가 미반영.","시간대 자료 최신성은 사용자 브라우저에 따름.","브라우저 시각·클립보드·다운로드 QA 미수행."],
+  "sources":["https://tc39.es/ecma402/#datetimeformat-objects","https://www.iana.org/time-zones"],
+  "entry":"dist/index.html"
+}

@@ -1,0 +1,26 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {resolveLocal,offsetText,localISO,isWorking,overlaps,parseLocal,checkDuration,validatePeople,ics} from './dist/core.js';
+import {locales,cities} from './dist/locales.js';
+const utc=s=>Date.parse(s),p={zone:'Asia/Seoul',start:'09:00',end:'18:00'};
+assert.deepEqual(resolveLocal('2026-10-26','09:00','Asia/Seoul'),[utc('2026-10-26T00:00:00Z')]);
+assert.deepEqual(resolveLocal('2026-03-08','02:30','America/New_York'),[]);
+assert.deepEqual(resolveLocal('2026-11-01','01:30','America/New_York'),[utc('2026-11-01T05:30:00Z'),utc('2026-11-01T06:30:00Z')]);
+assert.equal(offsetText(utc('2026-01-01T12:00:00Z'),'America/New_York'),'UTC-05:00');
+assert.equal(offsetText(utc('2026-07-01T12:00:00Z'),'America/New_York'),'UTC-04:00');
+assert.equal(offsetText(utc('2026-10-26T00:00:00Z'),'Asia/Kathmandu'),'UTC+05:45');
+assert.equal(localISO(utc('2026-10-26T18:00:00Z'),'Asia/Tokyo'),'2026-10-27 03:00');
+assert.deepEqual(resolveLocal('2026-10-04','02:15','Australia/Lord_Howe'),[]);
+assert.deepEqual(resolveLocal('2026-04-05','01:45','Australia/Lord_Howe'),[utc('2026-04-04T14:45:00Z'),utc('2026-04-04T15:15:00Z')]);
+assert.equal(isWorking(utc('2026-10-26T00:00:00Z'),60,p,true),true);
+assert.equal(isWorking(utc('2026-10-26T08:30:00Z'),60,p,true),false);
+assert.equal(isWorking(utc('2026-10-26T08:00:00Z'),60,p,true),true);
+assert.equal(isWorking(utc('2026-10-31T00:00:00Z'),60,p,true),false);
+assert.equal(isWorking(utc('2026-10-31T00:00:00Z'),60,p,false),true);
+let shared=overlaps('2026-10-26','Asia/Seoul',60,[p,{...p,zone:'Asia/Tokyo'}],true);assert.equal(shared.length,17);assert.equal(shared[0],utc('2026-10-26T00:00:00Z'));assert.equal(shared.at(-1),utc('2026-10-26T08:00:00Z'));
+assert.equal(overlaps('2026-10-26','Asia/Seoul',60,[p,{...p,zone:'America/New_York'}],true).length,0);
+for(let [date,time]of [['2026-02-29','10:00'],['1999-01-01','10:00'],['2026-01-01','24:00'],['','']])assert.throws(()=>parseLocal(date,time));
+assert.throws(()=>checkDuration('15.5'));assert.throws(()=>checkDuration(''));assert.throws(()=>validatePeople([{...p,start:'18:00',end:'09:00'}]));
+let event=ics(utc('2026-10-26T00:00:00Z'),60,'A, B; C\nD');assert.ok(event.includes('DTSTART:20261026T000000Z\r\nDTEND:20261026T010000Z'));assert.ok(event.includes('SUMMARY:A\\, B\\; C\\nD'));assert.ok(!event.replaceAll('\r\n','').includes('\n'));
+const keys=Object.keys(locales.ko).sort();for(let [lang,l]of Object.entries(locales)){assert.deepEqual(Object.keys(l).sort(),keys);assert.deepEqual(Object.keys(l.errors),Object.keys(locales.ko.errors));for(let [,key]of cities)assert.ok(l.cityNames[key]);let html=fs.readFileSync('dist/'+(lang==='ko'?'':lang+'/')+'index.html','utf8');assert.ok(html.includes('lang="'+lang+'"'));assert.ok(html.includes('noindex,nofollow'));for(let match of html.matchAll(/data-t="([^"]+)"/g))assert.equal(typeof l[match[1]],'string');}
+console.log('PASS: DST gap/fold including 30-minute transition, offsets, date rollover, complete-duration work windows, shared start fixtures, validation, ICS escaping and all 6 locale routes');
